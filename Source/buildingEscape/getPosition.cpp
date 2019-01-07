@@ -20,7 +20,7 @@ void UgetPosition::BeginPlay()
 	Super::BeginPlay();
 	FString  name = GetOwner()->GetName();
 	FVector actorPos = GetOwner()->GetTransform().GetLocation();
-	UE_LOG(LogTemp, Warning, TEXT("Hello : %s name: %s"),*actorPos.ToString(),*name);
+	UE_LOG(LogTemp, Warning, TEXT("position : %s name: %s"),*actorPos.ToString(),*name);
 
 	// ...
 	

@@ -7,7 +7,6 @@
 #include "GameFramework/Actor.h"
 #include "getPosition.generated.h"
 
-
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BUILDINGESCAPE_API UgetPosition : public UActorComponent
 {

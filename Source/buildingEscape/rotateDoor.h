@@ -5,6 +5,9 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "GameFramework/Actor.h"
+#include "GameFramework/PlayerController.h"
+#include "Engine/TriggerBox.h"
+#include "Engine/world.h"
 #include "rotateDoor.generated.h"
 
 
@@ -14,17 +17,28 @@ class BUILDINGESCAPE_API UrotateDoor : public UActorComponent
 	GENERATED_BODY()
 
 public:	
-	// Sets default values for this component's properties
 	UrotateDoor();
 
+	UPROPERTY(EditAnywhere)
+	float closeDelay=2;
+
 protected:
-	// Called when the game starts
 	virtual void BeginPlay() override;
 
+	void openDoor();
+	void closeDoor();
+
 public:	
-	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-		
-	
+private :
+	float lastTimeOpen;
+
+	AActor* player;
+
+	UPROPERTY(VisibleAnywhere)
+		float openAngle = 0;
+
+	UPROPERTY(EditAnywhere)
+	ATriggerBox* trigger;
 };
